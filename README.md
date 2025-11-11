@@ -59,7 +59,7 @@ cmake --build build --config Release
 # 5. Template 재사용
 새 프로젝트를 만들 때는 Template folder를 복사
 ```
-Copy-Item -Recurse -Force <Template 위치> <새 프로젝트 위치>
+Copy-Item <Template 위치> -Destination <새 프로젝트 이름> -Recurse
 ```
 
 # 6. Clean build
