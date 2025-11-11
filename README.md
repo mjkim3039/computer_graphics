@@ -70,3 +70,18 @@ cmake -S . -B build -G "Visual Studio 17 2022" -A x64 `
   -DVCPKG_TARGET_TRIPLET=x64-windows
 cmake --build build --config Debug
 ```
+
+# 7. build script
+```
+# build.bat
+@echo off
+cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=%VCPKG_ROOT%\scripts\buildsystems\vcpkg.cmake
+cmake --build build
+```
+
+```
+# 파일 빌드 및 실행
+# 루트 디렉토리에서
+./build.bat
+```
+
