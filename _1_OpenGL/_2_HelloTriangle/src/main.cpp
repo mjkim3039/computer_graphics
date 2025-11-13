@@ -17,7 +17,7 @@ int main(){
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* win { glfwCreateWindow(1024, 768, "OpenGL practice", nullptr, nullptr) };
+    GLFWwindow* win { glfwCreateWindow(1024, 768, "HelloTriangle", nullptr, nullptr) };
     if(!win){ glfwTerminate(); return -1; }
     glfwMakeContextCurrent(win);
     glfwSwapInterval(1);    //VSync 활성화

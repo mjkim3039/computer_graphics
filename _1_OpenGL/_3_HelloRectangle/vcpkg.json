@@ -1,0 +1,10 @@
+{
+  "name": "hellorectangle",
+  "version-string": "0.1.0",
+  "builtin-baseline": "c4e4a719ed05ca08331ceb315a6cff1ad1bea3fc",
+  "dependencies": [
+    "glfw3",
+    "glad",
+    "glm"
+  ]
+}

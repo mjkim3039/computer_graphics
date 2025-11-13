@@ -3,11 +3,15 @@
 
 // GPU memory에 vertex data upload + shader program load
 bool Renderer::init(){
-    // 삼각형
-    float tri[9] = {
-        -0.5f,-0.5f,0.f,
-         0.5f,-0.5f,0.f,
-         0.0f, 0.5f,0.f
+    // 사각형
+    float rect[18] = {
+        -.5f, -.5f, .0f,
+        .5f, -.5f, .0f,
+        -.5f, .5f, .0f,
+
+        -.5f, .5f, .0f,
+        .5f, -.5f, .0f,
+        .5f, .5f, .0f,
     };
 
     // VAO 생성 및 바인딩
@@ -17,7 +21,7 @@ bool Renderer::init(){
     // VBO 생성 및 data를 GPU VRAM에 복사
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(tri), tri, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(rect), rect, GL_STATIC_DRAW);
 
     // vertex 속성 index 0번을 활성화
     glEnableVertexAttribArray(0);
@@ -34,7 +38,8 @@ void Renderer::draw(int w, int h){
     glClear(GL_COLOR_BUFFER_BIT);
     shader.use();
     glBindVertexArray(vao);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 void Renderer::shutdown(){
